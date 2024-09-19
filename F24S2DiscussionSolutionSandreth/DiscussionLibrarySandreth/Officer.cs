@@ -5,13 +5,17 @@ using System.Text;
 
 namespace DiscussionLibrarySandreth
 {
-    public class Supervisor : AppUser
+    public class Officer
     {
+      
+        //need separate getters and setters;
 
-        //Data (properties)
+        //Property
         public string Firstname { get; set; }
+            
+        //Methods (actions)
 
-        //Actions (methods)
+            public Officer () { }
 
     }
 }
