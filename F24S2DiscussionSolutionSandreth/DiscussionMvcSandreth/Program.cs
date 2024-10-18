@@ -1,3 +1,4 @@
+using DiscussionLibrarySandreth;
 using DiscussionMvcSandreth.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,11 +11,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+//3 Services: Database, AppUsers, Roles
+
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
+InitialDatabase.SeedDatabase(services);
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
