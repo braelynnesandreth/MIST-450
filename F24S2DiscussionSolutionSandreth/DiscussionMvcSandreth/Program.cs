@@ -22,10 +22,15 @@ var app = builder.Build();
 
 var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
-
-InitialDatabase.SeedDatabase(services);
-
-
+try
+{
+    InitialDatabase.SeedDatabase(services);
+}
+catch(Exception serviceException)
+{
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(serviceException.Message, "Error from DB, User or Role service") 
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -38,6 +43,8 @@ else
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
