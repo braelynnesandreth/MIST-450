@@ -14,6 +14,21 @@
     {
         <h1>Admin User</h1>
     }
+    else
+    {
+        if(User.IsInRole("Officer"))
+        {
+            <h1>In officer role, I can make service requests</h1>
+        }
+        else
+        {
+            if(User.IsInRole("Supervisor"))
+            {
+                <h1>In supervisor role, I can decide service requests</h1>
+            }
+        }
+    }
+
 }
 else
 {

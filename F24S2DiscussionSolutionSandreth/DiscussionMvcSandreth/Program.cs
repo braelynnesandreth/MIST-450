@@ -29,7 +29,7 @@ try
 catch(Exception serviceException)
 {
     var logger = services.GetRequiredService<ILogger<Program>>();
-    logger.LogError(serviceException.Message, "Error from DB, User or Role service") 
+    logger.LogError(serviceException.Message, "Error from DB, User or Role service"); 
 }
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

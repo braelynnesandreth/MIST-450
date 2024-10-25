@@ -5,17 +5,20 @@ using System.Text;
 
 namespace DiscussionLibrarySandreth
 {
-    public class Officer
-    {
-      
+    public class Officer : AppUser // parent or base
+    { 
+
         //need separate getters and setters;
 
         //Property
-        public string Firstname { get; set; }
-            
+
         //Methods (actions)
 
-            public Officer () { }
+        public Officer () { }
+        public Officer(string firstname, string lastname,string phoneNumber,string email, string password) 
+            : base(firstname, lastname, phoneNumber, email,password)
+        {
 
+        }
     }
 }
