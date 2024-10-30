@@ -29,7 +29,7 @@ namespace DiscussionMvcSandreth.Data
 
 
             //insert all the roles into the database (Roles)
-            if (database.Roles.Any()) {
+            if (!database.Roles.Any()) {
                 IdentityRole role = new IdentityRole(adminRole);
                 roleManager.CreateAsync(role).Wait();
 

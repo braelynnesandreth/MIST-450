@@ -8,17 +8,16 @@ namespace DiscussionLibrarySandreth
     public class Supervisor : AppUser //parent or base
     {
 
-        //Data (properties)
-        
-
-        //Actions (methods)
-
-        public Supervisor() { }
-
+        //Constructors
         public Supervisor(string firstName, string lastName, string phoneNumber, string email, string password)
             : base(firstName, lastName, phoneNumber, email, password)
         {
 
         }
+        //Buld/compile erros, Runtime errors
+        //00 -> Relational DB
+        //O R Mapper : Entity Framework
+
+        public Supervisor () { }
     }
 }
