@@ -1,25 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DiscussionLibrarySandreth.Supervisor">
-    <Position X="0.5" Y="2.75" Width="1.5" />
+    <Position X="3" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Supervisor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DiscussionLibrarySandreth.Officer">
-    <Position X="2.5" Y="2.75" Width="1.5" />
+    <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Officer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DiscussionLibrarySandreth.AppUser">
-    <Position X="0.75" Y="0.75" Width="1.5" />
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AppUser.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="DiscussionLibrarySandreth.Supervises">
+    <Position X="5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAECAAAA=</HashCode>
+      <FileName>Supervises.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Officer" />
+      <Property Name="Supervisor" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

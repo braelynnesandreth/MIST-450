@@ -10,6 +10,9 @@ namespace DiscussionLibrarySandreth
     //Authorization (What are you allowed to access? - Role-based authorization)
     public class AppUser : IdentityUser
     {
+        //All the subclasses of IdentityUser
+        //use Id as its Identifier (as PK in database)
+        //string (GUID)
         public string Firstname { get; set; }
         public string Lastname { get; set; }
 
