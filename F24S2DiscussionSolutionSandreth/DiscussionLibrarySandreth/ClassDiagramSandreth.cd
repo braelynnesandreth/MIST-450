@@ -3,14 +3,14 @@
   <Class Name="DiscussionLibrarySandreth.Supervisor">
     <Position X="3" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Supervisor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DiscussionLibrarySandreth.Officer">
     <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Officer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,11 +22,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="DiscussionLibrarySandreth.Supervises">
-    <Position X="4.5" Y="3.75" Width="1.5" />
+    <Position X="5" Y="3.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAECAAAA=</HashCode>
       <FileName>Supervises.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Officer" />
+      <Property Name="Supervisor" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

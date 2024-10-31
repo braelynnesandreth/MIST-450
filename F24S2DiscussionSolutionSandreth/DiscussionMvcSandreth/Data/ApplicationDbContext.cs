@@ -12,6 +12,7 @@ namespace DiscussionMvcSandreth.Data
         public DbSet<Officer> Officer { get; set; }
 
         public DbSet<Supervisor> Supervisor { get; set; }
+        public DbSet<Supervises> Supervises { get; set; }   
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

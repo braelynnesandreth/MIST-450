@@ -80,7 +80,10 @@ namespace DiscussionMvcSandreth.Data
                 userManager.AddToRoleAsync(supervisor, supervisorRole).Wait();
 
 
-
+                //O3, S5 1/1/2020, 12/31/2020
+                //O3, S6 1/1/2021, null
+                //O4, S6 1/1/2023, 12/31/2023
+                //O4, S5 1/1/2024, null
             }
         }
     }
