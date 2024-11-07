@@ -85,6 +85,79 @@ namespace DiscussionMvcSandreth.Data
                 //O4, S6 1/1/2023, 12/31/2023
                 //O4, S5 1/1/2024, null
             }
+            
+            if(!database.Supervises.Any())
+            {
+                
+                //SQL using C# (LINQ): select officer object from Officer table,
+                //from Officer table,
+                //where 
+
+                List<Officer> officerList = new List<Officer>();
+
+                Officer officer = database.Officer.Where(o => o.UserName == "Test3.Officer@Test.com").First();
+                officerList.Add(officer);
+                
+                officer = database.Officer.Where(o => o.UserName == "Test4.Officer@Test.com").First();
+                officerList.Add(officer);
+
+                List<Supervisor> supervisorList = new List<Supervisor>();
+
+                Supervisor supervisor = database.Supervisor.Where(o => o.UserName == "Test5.Supervisor@Test.com").First();
+                supervisorList.Add(supervisor);
+
+                supervisor = database.Supervisor.Where(o => o.UserName == "Test6.Supervisor@Test.com").First();
+                supervisorList.Add(supervisor);
+
+                //== equals? Are tjese 2 equal?
+                //= assignment
+                
+                DateTime startDate = new DateTime(2020, 1, 1);//Y, M, D, S
+                //month, day, year: [12, 31, 2020] - [11, 30, 2023]
+
+                //O3, S5 1/1/2020, 12/31/2020
+
+
+                Supervises supervises = new Supervises(officerList[0], supervisorList[0], startDate);
+                database.Supervises.Add(supervises);
+                database.SaveChanges();
+
+
+                //O3, S6 1/1/2021, null
+                startDate = new DateTime(2021, 1, 1);
+                supervises = new Supervises(officerList[0], supervisorList[1], startDate);
+                database.Supervises.Add(supervises);
+                database.SaveChanges();
+
+                //CRUD
+                //1. Create / Add / Insert
+                //2. Read / Select
+                //3. Update/ Edit
+                //4. Delete
+                DateTime endDate = new DateTime(2020, 12, 31);
+                supervises.EndDate = endDate;
+                database.Supervises.Update(supervises);
+                database.SaveChanges();
+
+
+                //O4, S6 1/1/2023, 12/31/2023
+                startDate = new DateTime(2023, 1, 1);
+                supervises = new Supervises(officerList[1], supervisorList[1], startDate);
+                database.Supervises.Add(supervises);
+                database.SaveChanges();
+
+
+
+                //O4, S5 1/1/2024, null
+                startDate = new DateTime(2024, 1, 1);
+                supervises = new Supervises(officerList[1], supervisorList[0], startDate);
+                database.Supervises.Add(supervises);
+                database.SaveChanges();
+
+
+
+
+            }
         }
     }
 }
