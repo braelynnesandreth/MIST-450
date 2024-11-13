@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -10,7 +11,9 @@ namespace DiscussionLibrarySandreth
         //MVC requirement of an ID property (on database, PK)
         //auto-generated
         public int SupervisesId {  get; set; }
+        [Required]
         public Officer Officer { get; set; }
+        [Required]
         public Supervisor Supervisor { get; set; }
 
         public DateTime StartDate { get; set; }

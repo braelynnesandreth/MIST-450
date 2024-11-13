@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DiscussionLibrarySandreth
+{
+    public class ServiceRequest
+    {
+        public int ServiceRequestId {get; set;}
+        public DateTime DateRequestMade { get; set;}
+
+        public Officer Officer {get; set;}
+        public Vehicle Vehicle {get; set;}
+        public Supervisor Supervisor {get; set;}
+        public ServiceRequest () { }
+        public ServiceRequest
+            (int serviceRequestId, 
+            DateTime dateRequestMade, 
+            Officer officer, 
+            Vehicle vehicle, 
+            Supervisor supervisor)
+        {
+            ServiceRequestId = serviceRequestId;
+            DateRequestMade = dateRequestMade;
+            Officer = officer;
+            Vehicle = vehicle;
+            Supervisor = supervisor;
+        }
+    }
+}

@@ -124,6 +124,10 @@ namespace DiscussionMvcSandreth.Data
 
 
                 //O3, S6 1/1/2021, null
+                //if officerList[0]'s previous supervises connection has ended 
+                //before startting the new one - there should be an end date.
+                //When does this logic not work?
+                
                 startDate = new DateTime(2021, 1, 1);
                 supervises = new Supervises(officerList[0], supervisorList[1], startDate);
                 database.Supervises.Add(supervises);
@@ -147,7 +151,12 @@ namespace DiscussionMvcSandreth.Data
                 database.SaveChanges();
 
 
+                endDate = new DateTime(2023, 12, 31);
+                supervises.EndDate = endDate;
+                database.Supervises.Update(supervises);
+                database.SaveChanges();
 
+            
                 //O4, S5 1/1/2024, null
                 startDate = new DateTime(2024, 1, 1);
                 supervises = new Supervises(officerList[1], supervisorList[0], startDate);
