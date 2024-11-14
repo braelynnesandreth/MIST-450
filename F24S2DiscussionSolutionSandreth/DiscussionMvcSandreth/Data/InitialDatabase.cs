@@ -29,7 +29,8 @@ namespace DiscussionMvcSandreth.Data
 
 
             //insert all the roles into the database (Roles)
-            if (!database.Roles.Any()) {
+            if (!database.Roles.Any())
+            {
                 IdentityRole role = new IdentityRole(adminRole);
                 roleManager.CreateAsync(role).Wait();
 
@@ -85,10 +86,10 @@ namespace DiscussionMvcSandreth.Data
                 //O4, S6 1/1/2023, 12/31/2023
                 //O4, S5 1/1/2024, null
             }
-            
-            if(!database.Supervises.Any())
+
+            if (!database.Supervises.Any())
             {
-                
+
                 //SQL using C# (LINQ): select officer object from Officer table,
                 //from Officer table,
                 //where 
@@ -97,7 +98,7 @@ namespace DiscussionMvcSandreth.Data
 
                 Officer officer = database.Officer.Where(o => o.UserName == "Test3.Officer@Test.com").First();
                 officerList.Add(officer);
-                
+
                 officer = database.Officer.Where(o => o.UserName == "Test4.Officer@Test.com").First();
                 officerList.Add(officer);
 
@@ -111,7 +112,7 @@ namespace DiscussionMvcSandreth.Data
 
                 //== equals? Are tjese 2 equal?
                 //= assignment
-                
+
                 DateTime startDate = new DateTime(2020, 1, 1);//Y, M, D, S
                 //month, day, year: [12, 31, 2020] - [11, 30, 2023]
 
@@ -127,7 +128,7 @@ namespace DiscussionMvcSandreth.Data
                 //if officerList[0]'s previous supervises connection has ended 
                 //before startting the new one - there should be an end date.
                 //When does this logic not work?
-                
+
                 startDate = new DateTime(2021, 1, 1);
                 supervises = new Supervises(officerList[0], supervisorList[1], startDate);
                 database.Supervises.Add(supervises);
@@ -156,7 +157,7 @@ namespace DiscussionMvcSandreth.Data
                 database.Supervises.Update(supervises);
                 database.SaveChanges();
 
-            
+
                 //O4, S5 1/1/2024, null
                 startDate = new DateTime(2024, 1, 1);
                 supervises = new Supervises(officerList[1], supervisorList[0], startDate);
@@ -164,9 +165,18 @@ namespace DiscussionMvcSandreth.Data
                 database.SaveChanges();
 
 
+            }
+            if (!database.Vehicle.Any())
+            {
+                //Create two rows of vehicle
+            }
 
 
+            if (!database.ServiceRequest.Any())
+            {
+                //create one row of ServiceRequest
             }
         }
     }
 }
+

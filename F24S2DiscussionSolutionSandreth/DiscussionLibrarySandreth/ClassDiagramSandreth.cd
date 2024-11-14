@@ -3,14 +3,14 @@
   <Class Name="DiscussionLibrarySandreth.Supervisor">
     <Position X="3" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Supervisor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DiscussionLibrarySandreth.Officer">
     <Position X="7.25" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Officer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -31,6 +31,20 @@
       <Property Name="Officer" />
       <Property Name="Supervisor" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="DiscussionLibrarySandreth.ServiceRequest">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAIAAAAAEAABAAAAAAAAAAAAACCAAA=</HashCode>
+      <FileName>ServiceRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiscussionLibrarySandreth.ServiceNote">
+    <Position X="6.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEAAAAIAAAAAIIAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceNote.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

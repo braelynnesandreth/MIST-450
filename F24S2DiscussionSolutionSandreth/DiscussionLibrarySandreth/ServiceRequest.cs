@@ -14,19 +14,22 @@ namespace DiscussionLibrarySandreth
         public Officer Officer {get; set;}
         public Vehicle Vehicle {get; set;}
         public Supervisor Supervisor {get; set;}
+        public string ServiceRequestDescription {get; set;}
         public ServiceRequest () { }
         public ServiceRequest
-            (int serviceRequestId, 
-            DateTime dateRequestMade, 
-            Officer officer, 
-            Vehicle vehicle, 
-            Supervisor supervisor)
+            (//int serviceRequestId, 
+            //DateTime dateRequestMade,
+            Officer officer,
+            Vehicle vehicle,
+            Supervisor supervisor,
+            string serviceRequestDescription)
         {
-            ServiceRequestId = serviceRequestId;
-            DateRequestMade = dateRequestMade;
+            //ServiceRequestId = serviceRequestId;
+            DateRequestMade = DateTime.Now;
             Officer = officer;
             Vehicle = vehicle;
             Supervisor = supervisor;
+            ServiceRequestDescription = serviceRequestDescription;
         }
     }
 }
