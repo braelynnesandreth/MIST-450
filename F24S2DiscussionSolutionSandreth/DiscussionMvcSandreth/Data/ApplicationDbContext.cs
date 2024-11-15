@@ -16,6 +16,7 @@ namespace DiscussionMvcSandreth.Data
 
         public DbSet<Vehicle> Vehicle { get; set; }
         public DbSet<ServiceRequest> ServiceRequest { get; set; }
+        public DbSet<ServiceNote> ServiceNote { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

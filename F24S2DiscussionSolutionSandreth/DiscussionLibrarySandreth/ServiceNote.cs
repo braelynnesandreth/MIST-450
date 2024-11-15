@@ -17,6 +17,7 @@ namespace DiscussionLibrarySandreth
         [NotMapped]
         public List<ServiceNote> ServiceNoteListOfResponses { get; set; }
 
+        public ServiceNote() { }
         public ServiceNote (int serviceNoteId, string serviceNoteDescription, DateTime serviceNoteDate, ServiceRequest serviceRequest, ServiceNote serviceNoteRespondedTo, List<ServiceNote> serviceNoteListOfResponses)
         {
             ServiceNoteId = serviceNoteId;
