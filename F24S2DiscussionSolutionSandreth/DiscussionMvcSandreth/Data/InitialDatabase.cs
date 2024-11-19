@@ -168,15 +168,63 @@ namespace DiscussionMvcSandreth.Data
             }
             if (!database.Vehicle.Any())
             {
-                //Create two rows of vehicle
-            }
+
+                Vehicle vehicle1 = database.Vehicle.Where(v => v.VIN == "1HGCM82633A123456").FirstOrDefault();
+                Vehicle vehicle2 = database.Vehicle.Where(v => v.VIN == "1FTWW33P44EA12345").FirstOrDefault();
+
+                // Create the first ServiceRequest row
+                ServiceRequest serviceRequest1 = new ServiceRequest
+                {
+                    DateRequestMade = new DateTime(2023, 10, 1),
+                    DecisionStatus = "Pending",
+                    DateAssignedToMechanic = new DateTime(2023, 10, 5),
+                    DaterequestedCompleted = new DateTime(2023, 10, 15),
+                    RepairNote = "Oil change and tire rotation completed.",
+                    RepairNoteDate = new DateTime(2023, 10, 15),
+                    Vehicle = vehicle1 // Associate with the first vehicle
+                };
+                database.ServiceRequest.Add(serviceRequest1);
+
+                // Create the second ServiceRequest row
+                ServiceRequest serviceRequest2 = new ServiceRequest
+                {
+                    DateRequestMade = new DateTime(2023, 11, 1),
+                    DecisionStatus = "Pending",
+                    DateAssignedToMechanic = new DateTime(2023, 11, 3),
+                    DaterequestedCompleted = null, // Work is still in progress
+                    RepairNote = "Brake inspection scheduled.",
+                    RepairNoteDate = null, // Note will be added upon completion
+                    Vehicle = vehicle2 // Associate with the second vehicle
+                };
+                database.ServiceRequest.Add(serviceRequest2);
+                database.SaveChanges();
 
 
-            if (!database.ServiceRequest.Any())
+
+
+
+                if (!database.ServiceRequest.Any())
             {
-                //create one row of ServiceRequest
+                ServiceRequest serviceRequest = new ServiceRequest
+                {
+                    DateRequestMade = new DateTime(2023, 11, 1),
+                    DecisionStatus = "Pending",
+                    DateAssignedToMechanic = new DateTime(2023, 11, 3),
+                    DaterequestedCompleted = null, // The request is still in progress
+                    RepairNote = "Initial diagnostic performed.",
+                    RepairNoteDate = new DateTime(2023, 11, 3)
+                };
+
+
+                database.ServiceRequest.Add(serviceRequest);
+                database.SaveChanges();
             }
+
+            }
+
         }
     }
 }
+
+
 
