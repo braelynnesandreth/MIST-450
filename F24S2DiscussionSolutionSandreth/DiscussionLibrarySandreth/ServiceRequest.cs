@@ -15,14 +15,7 @@ namespace DiscussionLibrarySandreth
         public Vehicle Vehicle {get; set;}
         public Supervisor Supervisor {get; set;}
         public string ServiceRequestDescription {get; set;}
-        public DateTime DateAssignedToMechanic { get; set; }
-        public DateTime? DaterequestedCompleted { get; set; }
-        public string DecisionStatus { get; set; }
-        public string RepairNote { get; set; }
-        public DateTime? RepairNoteDate { get; set; }
-        public DateTime DateDecisionMade { get; set; }
-        public DateTime DateRequestCompleted { get; set; }
-        public string VehicleId { get; set; }
+       
 
         public ServiceRequest () { }
         public ServiceRequest

@@ -1,5 +1,6 @@
 ﻿using DiscussionLibrarySandreth;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiscussionMvcSandreth.Data
 {
@@ -170,37 +171,43 @@ namespace DiscussionMvcSandreth.Data
             {
 
 
-                List<Vehicle> vehicleList = new List<Vehicle>();
-
-                Vehicle vehicle = new Vehicle("1HGCM82633A123456"); // Example VIN
-                vehicleList.Add(vehicle);
-
-                vehicle = new Vehicle("1FTWW33P44EA12345"); // Example VIN
-                vehicleList.Add(vehicle);
 
 
-                foreach (var v in vehicleList)
-                {
-                    database.Vehicle.Add(v);
-                }
+                Vehicle vehicle = new Vehicle { VIN = "V01" };
+                database.Vehicle.Add(vehicle);
+
+                vehicle = new Vehicle("V02");
+                database.Vehicle.Add(vehicle);
+
                 database.SaveChanges();
+
+
             }
 
 
             if (!database.ServiceRequest.Any())
             {
+                Vehicle vehicle = database.Vehicle.First();
+                Officer officer = database.Officer
+                    .Include(o => o.SupervisorsOfOfficer )
+                    .ThenInclude(sof => sof.Supervisor).First();
+               
+                   
+
+                Supervisor supervisor = 
+                    officer
+                    .SupervisorsOfOfficer.Where(sof => sof.EndDate == null).First()
+                    .Supervisor;
+
                 ServiceRequest serviceRequest = new ServiceRequest
-                {
-                    DateRequestMade = new DateTime(2023, 11, 1),
-                    DecisionStatus = "Pending",
-                    DateAssignedToMechanic = new DateTime(2023, 11, 3),
-                    DaterequestedCompleted = null, // The request is still in progress
-                    RepairNote = "Initial diagnostic performed.",
-                    RepairNoteDate = new DateTime(2023, 11, 3)
-                };
+                    (officer, vehicle, supervisor, "Tire Cchange");
                 database.ServiceRequest.Add(serviceRequest);
                 database.SaveChanges();
+
+
+
             }
         }
     }
 }
+
