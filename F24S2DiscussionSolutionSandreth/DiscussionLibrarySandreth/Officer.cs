@@ -17,7 +17,15 @@ namespace DiscussionLibrarySandreth
         public List<ServiceRequest> ServiceRequests { get; set; }
         = new List<ServiceRequest>();
 
+        //Call and Re-use(test this logic)
+        public Supervisor FindCurrentSupervisorOfOfficer()
+        {
+            Supervisor supervisor = this
+                    .SupervisorsOfOfficer.Where(sof => sof.EndDate == null).First()
+                    .Supervisor;
 
+            return supervisor;
+        }
 
         //Methods (actions)
 

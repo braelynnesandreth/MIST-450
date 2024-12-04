@@ -191,23 +191,52 @@ namespace DiscussionMvcSandreth.Data
                 Officer officer = database.Officer
                     .Include(o => o.SupervisorsOfOfficer )
                     .ThenInclude(sof => sof.Supervisor).First();
-               
+
+
+
+                Supervisor supervisor =
+                    officer.FindCurrentSupervisorOfOfficer();
                    
+                    
 
-                Supervisor supervisor = 
-                    officer
-                    .SupervisorsOfOfficer.Where(sof => sof.EndDate == null).First()
-                    .Supervisor;
-
-                ServiceRequest serviceRequest = new ServiceRequest
-                    (officer, vehicle, supervisor, "Tire Cchange");
+                ServiceRequest serviceRequest = new ServiceRequest(officer, vehicle, supervisor, "Tire Cchange");
                 database.ServiceRequest.Add(serviceRequest);
                 database.SaveChanges();
 
-
-
             }
-        }
-    }
-}
+
+            if (!database.ServiceNote.Any())
+            {
+                ServiceRequest serviceRequest = database.ServiceRequest.First();
+
+                List<ServiceNote> serviceNotes = new List<ServiceNote>();
+
+                ServiceNote serviceNote =
+                    new ServiceNote("Note 1", serviceRequest, null); 
+                serviceNotes.Add(serviceNote);
+                database.ServiceNote.Add(serviceNote);
+                database.SaveChanges();
+
+                serviceNote =
+                    new ServiceNote("Note 1.1", serviceRequest, serviceNotes[0]);
+                serviceNotes.Add(serviceNote);
+                database.ServiceNote.Add(serviceNote);
+                database.SaveChanges();
+
+                serviceNote =
+                    new ServiceNote("Note 1.2", serviceRequest, serviceNotes[0]);
+                serviceNotes.Add(serviceNote);
+                database.ServiceNote.Add(serviceNote);
+                database.SaveChanges();
+
+                serviceNote =
+                    new ServiceNote("Note 1.1.1", serviceRequest, serviceNotes[1]);
+                serviceNotes.Add(serviceNote);
+                database.ServiceNote.Add(serviceNote);
+                database.SaveChanges();
+            }
+
+        }//end Seed method
+    }//end class
+}//end namespace
 

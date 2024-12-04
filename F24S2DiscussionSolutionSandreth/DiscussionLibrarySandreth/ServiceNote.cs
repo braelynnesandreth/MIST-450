@@ -18,14 +18,15 @@ namespace DiscussionLibrarySandreth
         public List<ServiceNote> ServiceNoteListOfResponses { get; set; }
 
         public ServiceNote() { }
-        public ServiceNote (int serviceNoteId, string serviceNoteDescription, DateTime serviceNoteDate, ServiceRequest serviceRequest, ServiceNote serviceNoteRespondedTo, List<ServiceNote> serviceNoteListOfResponses)
+        public ServiceNote(string serviceNoteDescription, ServiceRequest serviceRequest, ServiceNote? serviceNoteRespondedTo)
         {
-            ServiceNoteId = serviceNoteId;
             ServiceNoteDescription = serviceNoteDescription;
-            ServiceNoteDate = serviceNoteDate;
-            ServiceRequest = serviceRequest;
-            ServiceNoteRespondedTo = serviceNoteRespondedTo;
-            ServiceNoteListOfResponses = serviceNoteListOfResponses;
+            ServiceNoteDate = DateTime.Now;
+            this.ServiceRequest = serviceRequest; 
+            ServiceNoteRespondedTo= serviceNoteRespondedTo;
+            
+
         }
+
     }
 }

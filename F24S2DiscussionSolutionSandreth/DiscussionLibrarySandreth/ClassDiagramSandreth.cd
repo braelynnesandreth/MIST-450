@@ -38,7 +38,7 @@
   <Class Name="DiscussionLibrarySandreth.ServiceRequest">
     <Position X="3" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gIIAICAAAAAAEABIAAAAAEAABAAAgAAAAAAAAAKCAAA=</HashCode>
+      <HashCode>AAAAIAAAAAAAAAAIAAAAAEAABAAAAAAAAAAAAACCAAA=</HashCode>
       <FileName>ServiceRequest.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -47,6 +47,13 @@
     <TypeIdentifier>
       <HashCode>AgEAAAAIAAAAAIIAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ServiceNote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiscussionLibrarySandreth.Vehicle">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAgAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
