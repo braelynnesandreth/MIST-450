@@ -21,7 +21,7 @@ namespace DiscussionLibrarySandreth
 
         [NotMapped]
         public List<ServiceNote> ServiceNotesForServiceRequest { get; set; }
-
+        public ServiceRequest() { }
         public ServiceRequest(
             //int serviceRequestId,
             //DateTime dateRequestMade,
@@ -58,6 +58,39 @@ namespace DiscussionLibrarySandreth
             ServiceRequestStatus = ServiceRequestStatusOptions.Pending;
 
         }//end constructor
+
+        //belongs to the object or the class itself 
+        public static List<ServiceRequest> SearchServiceRequests
+            (List<ServiceRequest>
+            inputServiceRequests,
+           ServiceRequestStatusOptions? inputServiceRequestStatus,
+          DateTime? inputStartDateRequestMade,
+          DateTime? inputEndDateRequestMade)
+
+
+        {
+            List<ServiceRequest> searchResult = inputServiceRequests;
+
+            //Filter based on input search criteria 
+            if(inputServiceRequestStatus != null)
+            {
+                searchResult =
+                searchResult.Where(sr => sr.ServiceRequestStatus == inputServiceRequestStatus).ToList();
+            }
+
+            if(inputStartDateRequestMade != null)
+            {
+                searchResult = searchResult.Where(sr => sr.DateRequestMade >= inputStartDateRequestMade).ToList();
+            }
+            if (inputEndDateRequestMade != null)
+            {
+                searchResult = searchResult.Where(sr => sr.DateRequestMade <= inputStartDateRequestMade).ToList();
+            }
+        
+
+            return searchResult;
+
+        }
     }//end class
 
     public enum ServiceRequestStatusOptions
