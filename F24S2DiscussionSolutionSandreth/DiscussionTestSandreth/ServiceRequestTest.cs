@@ -4,7 +4,7 @@ namespace DiscussionTestSandreth
 {
     public class ServiceRequestTest
     {
-        [Fact] 
+        [Fact]
         public void TestEqualAndEquilvalent()
         {
             Vehicle vehicle1 = new Vehicle { VehicleId = 1 };
@@ -23,7 +23,7 @@ namespace DiscussionTestSandreth
         }
 
         [Fact]
-        
+
         public void ShouldSearchServiceRequests()
         {
             //AAA patern testing; agile dev (scrum) - Test Driven Dev (TDD) - Test first dev (red - green)
@@ -32,24 +32,24 @@ namespace DiscussionTestSandreth
             //Optional Criteria : 1. ServiceRequestStatus (pending), 2. DateRequestMade (made in Noc)
             List<ServiceRequest> inputServiceRequests = CreateTestData();
             ServiceRequestStatusOptions? inputServiceRequestStatus = null;
-            DateTime? inputStartDateRequestMade = null;
-            DateTime? inputEndDateRequestMade = null;
+            DateTime? inputStartDateRequestMade = new DateTime(2024, 11, 1);
+            DateTime? inputEndDateRequestMade = new DateTime(2024, 11, 30);
             List<ServiceRequest> outputServiceRequests = new List<ServiceRequest>();
-            int expectedNumberOfServiceRequests = 3;
+            int expectedNumberOfServiceRequests =4;
 
 
             //2. Act
-         outputServiceRequests =  ServiceRequest.SearchServiceRequests(inputServiceRequests, inputServiceRequestStatus,
-                inputStartDateRequestMade, inputEndDateRequestMade);
-
+            outputServiceRequests = ServiceRequest.SearchServiceRequests(inputServiceRequests, inputServiceRequestStatus,
+          inputStartDateRequestMade, inputEndDateRequestMade);
 
             //3. Assert
             Assert.Equal(expectedNumberOfServiceRequests, outputServiceRequests.Count);
 
 
+
             //2.1 Arrange
             inputServiceRequestStatus = ServiceRequestStatusOptions.Pending;
-            expectedNumberOfServiceRequests = 2;
+            expectedNumberOfServiceRequests = 3;
 
 
             //2.2 Act
@@ -60,17 +60,31 @@ namespace DiscussionTestSandreth
 
 
             //2.3 Assert
-            Assert.Equal(expectedNumberOfServiceRequests, outputServiceRequests.Count);
+            Assert.Equal(expectedNumberOfServiceRequests, outputServiceRequests.Count); 
+
 
 
             //3.1
-             inputStartDateRequestMade = null; //change to Nov 1, Nov 30
-             inputEndDateRequestMade = null;
+            inputStartDateRequestMade = new DateTime(2024, 11, 1);
+            inputEndDateRequestMade = new DateTime(2024, 11, 30);
+            expectedNumberOfServiceRequests = 3;
 
 
             //3.2
+            outputServiceRequests = ServiceRequest.SearchServiceRequests(inputServiceRequests, inputServiceRequestStatus,
+              inputStartDateRequestMade, inputEndDateRequestMade);
 
             //3.3
+            Assert.Equal(expectedNumberOfServiceRequests, outputServiceRequests.Count);
+
+
+            //3.4
+            Assert.Collection(outputServiceRequests,
+        request => Assert.Equal(new DateTime(2024, 11, 1), request.DateRequestMade),
+        request => Assert.Equal(new DateTime(2024, 11, 3), request.DateRequestMade),
+        request => Assert.Equal(new DateTime(2024, 11, 15), request.DateRequestMade)
+    );
+
 
 
 
@@ -82,40 +96,46 @@ namespace DiscussionTestSandreth
 
             //Pending -2, Nov -2, Dec -1, Denied - 1
 
-            ServiceRequest serviceRequest =
-                new ServiceRequest
-                {
-                    ServiceRequestId = 1,
-                    ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
-                    DateRequestMade = new DateTime(2024, 11, 1)
-                };
+            ServiceRequest serviceRequest = new ServiceRequest
+            {
+                ServiceRequestId = 1,
+                ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
+                DateRequestMade = new DateTime(2024, 11, 1)
+            };
             testServiceRequests.Add(serviceRequest);
 
-            serviceRequest =
-                new ServiceRequest
-                {
-                    ServiceRequestId = 2,
-                    ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
-                    DateRequestMade = new DateTime(2024, 12, 1)
-                };
+            
+            serviceRequest = new ServiceRequest
+            {
+                ServiceRequestId = 2,
+                ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
+                DateRequestMade = new DateTime(2024, 11, 3)
+            };
             testServiceRequests.Add(serviceRequest);
 
-            serviceRequest =
-                new ServiceRequest
-                {
-                    ServiceRequestId = 3,
-                    ServiceRequestStatus = ServiceRequestStatusOptions.Denied,
-                    DateRequestMade = new DateTime(2024, 11, 3)
-                };
+            
+            serviceRequest = new ServiceRequest
+            {
+                ServiceRequestId = 3,
+                ServiceRequestStatus = ServiceRequestStatusOptions.Denied,
+                DateRequestMade = new DateTime(2024, 11, 5)
+            };
             testServiceRequests.Add(serviceRequest);
+
+
+            serviceRequest = new ServiceRequest
+            {
+                ServiceRequestId = 4,
+                ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
+                DateRequestMade = new DateTime(2024, 11, 15)
+            };
+            testServiceRequests.Add(serviceRequest);
+
+
 
 
 
             return testServiceRequests;
         }
-
-
-
-
     }
 }
