@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DiscussionMvcSandreth.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddServiceNOte : Migration
+    public partial class AddServiceNote : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

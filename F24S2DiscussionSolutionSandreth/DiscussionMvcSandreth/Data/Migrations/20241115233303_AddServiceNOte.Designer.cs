@@ -13,7 +13,7 @@ namespace DiscussionMvcSandreth.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20241115233303_AddServiceNOte")]
-    partial class AddServiceNOte
+    partial class AddServiceNote
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -85,7 +85,7 @@ namespace DiscussionLibrarySandreth
             }
             if (inputEndDateRequestMade != null)
             {
-                searchResult = searchResult.Where(sr => sr.DateRequestMade <= inputStartDateRequestMade.Value).ToList();
+                searchResult = searchResult.Where(sr => sr.DateRequestMade <= inputEndDateRequestMade.Value).ToList();
             }
             if (inputOfficerEmail != null)
             {
