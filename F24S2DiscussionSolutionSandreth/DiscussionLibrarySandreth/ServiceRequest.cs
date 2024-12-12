@@ -65,7 +65,8 @@ namespace DiscussionLibrarySandreth
             inputServiceRequests,
            ServiceRequestStatusOptions? inputServiceRequestStatus,
           DateTime? inputStartDateRequestMade,
-          DateTime? inputEndDateRequestMade)
+          DateTime? inputEndDateRequestMade,
+          string? inputOfficerEmail)
 
 
         {
@@ -84,9 +85,13 @@ namespace DiscussionLibrarySandreth
             }
             if (inputEndDateRequestMade != null)
             {
-                searchResult = searchResult.Where(sr => sr.DateRequestMade <= inputEndDateRequestMade.Value).ToList();
+                searchResult = searchResult.Where(sr => sr.DateRequestMade <= inputStartDateRequestMade.Value).ToList();
             }
-        
+            if (inputOfficerEmail != null)
+            {
+                searchResult = searchResult.Where(sr => sr.Officer.Email == inputOfficerEmail).ToList();
+            }
+
 
             return searchResult;
 

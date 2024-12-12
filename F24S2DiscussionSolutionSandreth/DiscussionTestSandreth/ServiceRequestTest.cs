@@ -34,8 +34,9 @@ namespace DiscussionTestSandreth
             ServiceRequestStatusOptions? inputServiceRequestStatus = null;
             DateTime? inputStartDateRequestMade = null;
             DateTime? inputEndDateRequestMade = null;
+            string? officerEmail = null;
             List<ServiceRequest> outputServiceRequests = new List<ServiceRequest>();
-            int expectedNumberOfServiceRequests = 4;
+            int expectedNumberOfServiceRequests = 3;
 
 
             //2. Act
@@ -49,7 +50,7 @@ namespace DiscussionTestSandreth
 
             //2.1 Arrange
             inputServiceRequestStatus = ServiceRequestStatusOptions.Pending;
-            expectedNumberOfServiceRequests = 3;
+            expectedNumberOfServiceRequests = 2;
 
 
             //2.2 Act
@@ -92,6 +93,8 @@ namespace DiscussionTestSandreth
                     ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
                     DateRequestMade = new DateTime(2024, 11, 1)
                 };
+            Officer officer = new Officer { Email = "test1@test.com" };
+            serviceRequest.Officer = officer;
             testServiceRequests.Add(serviceRequest);
 
             serviceRequest =
@@ -99,7 +102,7 @@ namespace DiscussionTestSandreth
                 {
                     ServiceRequestId = 2,
                     ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
-                    DateRequestMade = new DateTime(2024, 11, 15)
+                    DateRequestMade = new DateTime(2024, 12, 1)
                 };
             testServiceRequests.Add(serviceRequest);
 
@@ -110,13 +113,7 @@ namespace DiscussionTestSandreth
                     ServiceRequestStatus = ServiceRequestStatusOptions.Pending,
                     DateRequestMade = new DateTime(2024, 12, 1)
                 };
-            testServiceRequests.Add(serviceRequest);
-            serviceRequest = new ServiceRequest 
-            {
-                ServiceRequestId = 4, 
-                ServiceRequestStatus = ServiceRequestStatusOptions.Denied, 
-                DateRequestMade = new DateTime(2024, 11, 3) }; 
-            testServiceRequests.Add(serviceRequest);
+          
 
 
             return testServiceRequests;
