@@ -73,13 +73,12 @@ namespace DiscussionLibrarySandreth
             List<ServiceRequest> searchResult = inputServiceRequests;
 
             //Filter based on input search criteria 
-            if(inputServiceRequestStatus != null)
+            if (inputServiceRequestStatus != null)
             {
-                searchResult =
-                searchResult.Where(sr => sr.ServiceRequestStatus == inputServiceRequestStatus).ToList();
+                searchResult = searchResult.Where(sr => sr.ServiceRequestStatus == inputServiceRequestStatus).ToList();
             }
 
-            if(inputStartDateRequestMade != null)
+            if (inputStartDateRequestMade != null)
             {
                 searchResult = searchResult.Where(sr => sr.DateRequestMade >= inputStartDateRequestMade).ToList();
             }
@@ -89,19 +88,20 @@ namespace DiscussionLibrarySandreth
             }
             if (inputOfficerEmail != null)
             {
-                searchResult = searchResult.Where(sr => sr.Officer.Email == inputOfficerEmail).ToList();
+                searchResult = searchResult.Where(sr => sr.Officer != null && sr.Officer.Email == inputOfficerEmail).ToList();
             }
 
-
             return searchResult;
-
-        }
-    }//end class
+        
+    }
+}//end class
 
     public enum ServiceRequestStatusOptions
     {
         Pending, Approved, Denied, Completed
     }
+
+
 
 }//end namespace
 

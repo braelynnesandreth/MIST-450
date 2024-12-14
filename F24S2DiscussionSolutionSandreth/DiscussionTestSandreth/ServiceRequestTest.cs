@@ -76,6 +76,22 @@ namespace DiscussionTestSandreth
             Assert.Equal(expectedNumberOfServiceRequests, outputServiceRequests.Count);
         }
 
+        [Fact]
+        public void ShouldFindServiceRequestByEmail()
+        {
+
+            List<ServiceRequest> inputServiceRequests = CreateTestData(); 
+            string officerEmail = "test1@test.com";
+            List<ServiceRequest> outputServiceRequests = new List<ServiceRequest>();
+            int expectedNumberOfServiceRequests = 1;
+
+            outputServiceRequests = ServiceRequest.SearchServiceRequests
+                (inputServiceRequests, null, null, null, officerEmail);
+
+            Assert.Equal(expectedNumberOfServiceRequests, outputServiceRequests.Count);
+            Assert.Equal(officerEmail, outputServiceRequests[0].Officer.Email);
+        }
+
         public List<ServiceRequest> CreateTestData()
         {
             List<ServiceRequest> testServiceRequests = new List<ServiceRequest>();
