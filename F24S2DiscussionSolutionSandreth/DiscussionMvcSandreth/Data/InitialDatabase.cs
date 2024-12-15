@@ -199,7 +199,7 @@ namespace DiscussionMvcSandreth.Data
                    
                     
 
-                ServiceRequest serviceRequest = new ServiceRequest(officer, vehicle, supervisor, "Tire Cchange");
+                ServiceRequest serviceRequest = new ServiceRequest(officer, vehicle, supervisor, "Tire Change");
                 database.ServiceRequest.Add(serviceRequest);
                 database.SaveChanges();
 
