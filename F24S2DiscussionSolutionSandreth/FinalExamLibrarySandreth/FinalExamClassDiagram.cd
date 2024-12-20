@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FinalExamLibrarySandreth.AppUser">
+    <Position X="2" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalExamLibrarySandreth.Course">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAQAAAEAGAAAAAAAAAAAAAAAAAAIAAAAIAAAAA=</HashCode>
+      <FileName>Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalExamLibrarySandreth.CourseOffering">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAEAAAAAAAYIAAAAAAAEAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>CourseOffering.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalExamLibrarySandreth.Registers">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FinalExamLibrarySandreth.Registers.LetterGrade" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Registers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAkAAAAYAAAAAAAAAAAAAAAAAAAAAECAAA=</HashCode>
+      <FileName>Registers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinalExamLibrarySandreth.Student">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAIAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAACAAA=</HashCode>
+      <FileName>Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
